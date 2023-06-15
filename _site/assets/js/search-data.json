@@ -1,0 +1,51 @@
+{"0": {
+    "doc": "About",
+    "title": "Contributors",
+    "content": "Rohan Singh and Simon Mantha at Memorial Sloan Kettering, NY. ",
+    "url": "/about/#contributors",
+    
+    "relUrl": "/about/#contributors"
+  },"1": {
+    "doc": "About",
+    "title": "About",
+    "content": " ",
+    "url": "/about/",
+    
+    "relUrl": "/about/"
+  },"2": {
+    "doc": "PINES",
+    "title": "Introduction",
+    "content": "The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. ",
+    "url": "/#introduction",
+    
+    "relUrl": "/#introduction"
+  },"3": {
+    "doc": "PINES",
+    "title": "Training",
+    "content": "The training . ",
+    "url": "/#training",
+    
+    "relUrl": "/#training"
+  },"4": {
+    "doc": "PINES",
+    "title": "Results",
+    "content": "Excellent accuracy . ",
+    "url": "/#results",
+    
+    "relUrl": "/#results"
+  },"5": {
+    "doc": "PINES",
+    "title": "Contribute",
+    "content": "Please . ",
+    "url": "/#contribute",
+    
+    "relUrl": "/#contribute"
+  },"6": {
+    "doc": "PINES",
+    "title": "PINES",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  }
+}

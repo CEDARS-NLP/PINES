@@ -18,10 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: PINES 
+title: PINES
+tagline: clinical event detection
 email: singhrohan@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  The NLP package based on transformers to detect clinical events in patient notes.
+  A NLP package based on transformers to detect clinical events in patient notes.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://cedars-nlp.github.io/PINES" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ygivenx

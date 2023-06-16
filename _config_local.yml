@@ -22,8 +22,8 @@ title: PINES
 email: singhrohan@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
   The NLP package based on transformers to detect clinical events in patient notes.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://cedars-nlp.github.io/PINES" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/PINES" # the subpath of your site, e.g. /blog
+url: "https://cedars-nlp.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ygivenx
 github_username:  ygivenx
 
@@ -33,6 +33,10 @@ theme: just-the-docs
 #remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
+just_the_docs:
+  aux_links:
+    "SAMPLE LINK": "/url/to/page"
+    heading_anchors: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

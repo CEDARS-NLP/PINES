@@ -1,7 +1,7 @@
 {"0": {
     "doc": "About",
     "title": "Contributors",
-    "content": "Rohan Singh and Simon Mantha at Memorial Sloan Kettering, NY. ",
+    "content": ". | Rohan Singh (MS) | Dr. Simon Mantha (MD, MPH) | . ",
     "url": "/about/#contributors",
     
     "relUrl": "/about/#contributors"
@@ -15,31 +15,31 @@
   },"2": {
     "doc": "PINES",
     "title": "Introduction",
-    "content": "The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. ",
+    "content": "The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. Fig 1. Labeling Patient Notes . ",
     "url": "/#introduction",
     
     "relUrl": "/#introduction"
   },"3": {
     "doc": "PINES",
+    "title": "Datasets",
+    "content": "| Set | Patients | Notes | . | Training | 24,774 | 394,948 | . | Validation | 3,540 | 55,502 | . | Dev | 3,540 | 60,134 | . | Test | 3, 540 | - | . ",
+    "url": "/#datasets",
+    
+    "relUrl": "/#datasets"
+  },"4": {
+    "doc": "PINES",
     "title": "Training",
-    "content": "The training . ",
+    "content": "A Longformer-4096 LLM model was fine-tuned on the training dataset of 394,948 notes. Sliding window attention of 512 (256 on each side) was used along with global attention on Venous Thromoboemolism related keywords. The selected model had the best loss on the validation set. Fig 2. Validation Loss . Fig 3. Validation Accuracy . ",
     "url": "/#training",
     
     "relUrl": "/#training"
-  },"4": {
+  },"5": {
     "doc": "PINES",
     "title": "Results",
-    "content": "Excellent accuracy . ",
+    "content": "The fine_tuned model was used to predict the probability of the unseen notes in the DEV set. Fig 4. Predicted probabilities of notes with true labels . With the predicted probabilities of notes per patient, the date of Venous Thromboembolism was predicted using Maximum Likelihood. Fig 5. Difference between estimated and predicted dates . At a patient level, the following metrics were obseved with cutoff probability of 0.955 . | Metrics | Value | . | Accuracy | 0.96 (0.96 - 0.97) | . | Precision | 0.82 (0.79 - 0.85) | . | Recall | 0.95 (0.92 - 0.96) | . | Specificity | 0.97 (0.96 - 0.97) | . Fig 6. ROC for predicting patients with VTE . Fig 7. Confusion Matrix for predicting patients with VTE . ",
     "url": "/#results",
     
     "relUrl": "/#results"
-  },"5": {
-    "doc": "PINES",
-    "title": "Contribute",
-    "content": "Please . ",
-    "url": "/#contribute",
-    
-    "relUrl": "/#contribute"
   },"6": {
     "doc": "PINES",
     "title": "PINES",

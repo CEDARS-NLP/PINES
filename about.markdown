@@ -6,4 +6,5 @@ permalink: /about/
 
 ## Contributors
 
-Rohan Singh and Simon Mantha at Memorial Sloan Kettering, NY.
+ - Rohan Singh (MS) 
+ - Dr. Simon Mantha (MD, MPH) 

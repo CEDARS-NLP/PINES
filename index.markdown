@@ -16,6 +16,10 @@ The PINES package detects if a patient note came before or after the occurence o
 
 *Fig 1. Labeling Patient Notes*
 
+# Code
+
+The code for PINES can be found [here](https://github.com/CEDARS-NLP/PINES/tree/main).
+
 # Datasets
 
 | Set         | Patients    | Notes   |

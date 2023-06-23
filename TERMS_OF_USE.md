@@ -1,4 +1,12 @@
-## PINES (Progressive Inference Networked Episodic Service) Terms of Use
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+title: Terms of Use
+summary: Terms of Use for Progressive Inference Nested Episodic Service
+---
+## Terms of Use PINES (Progressive Inference Networked Episodic Service) 
 
 **PLEASE READ THIS DOCUMENT CAREFULLY BEFORE YOU ACCESS OR USE PINES. BY ACCESSING ANY PORTION OF PINES, YOU AGREE TO BE BOUND BY THE TERMS AND CONDITIONS SET FORTH BELOW. IF YOU DO NOT WISH TO BE BOUND BY THESE TERMS AND CONDITIONS, PLEASE DO NOT ACCESS PINES.**
 

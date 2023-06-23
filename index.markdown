@@ -5,6 +5,7 @@
 layout: home
 title: PINES
 summary: Progressive Inference Nested Episodic Service
+nav_order: 2
 ---
 
 # Introduction

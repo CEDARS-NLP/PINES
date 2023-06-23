@@ -33,10 +33,6 @@ theme: just-the-docs
 #remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
-just_the_docs:
-  aux_links:
-    "SAMPLE LINK": "/url/to/page"
-    heading_anchors: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -56,3 +52,6 @@ just_the_docs:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+aux_links:
+  "PINES on GitHub":
+    - "https://github.com/CEDARS-NLP/PINES"

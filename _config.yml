@@ -53,3 +53,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+# Aux links for the upper right navigation
+aux_links:
+  "PINES on GitHub":
+    - "https://github.com/CEDARS-NLP/PINES"

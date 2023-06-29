@@ -77,11 +77,11 @@ At a patient level, the following metrics were obseved with cutoff probability o
 | Recall     | 0.95 (0.92 - 0.96)      |
 | Specificity | 0.97 (0.96 - 0.97)|
 
-![](images/roc_pines.svg){: width="500" }
+![](images/roc_pines.svg)
 
 *Fig 6. ROC for predicting patients with VTE*
 
 
-![](images/pines_confusion_matrix.svg){: width="500" }
+![](images/pines_confusion_matrix.svg)
 
 *Fig 7. Confusion Matrix for predicting patients with VTE*

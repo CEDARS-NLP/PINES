@@ -12,8 +12,7 @@ nav_order: 2
 
 The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. PINES is an addition to the [CEDARS](https://cedars.io) project. In addition to predicting notes probabilities, the PINES package also uses Maximum Likelihood to find the probable date of the event.
 
-<!-- ![Labeling Patient Notes](images/isth-vte.svg) -->
-![Labeling Patient Notes](images/loading.jpg)
+![Labeling Patient Notes](images/isth-vte.svg)
 
 *Fig 1. Labeling Patient Notes*
 
@@ -70,15 +69,13 @@ Training Code (Pytorch Lightning)
 
 The _fine_tuned_ model was used to predict the probability of the unseen notes in the DEV set.
 
-<!-- ![](images/notes_prediction_probabilities.svg) -->
-![](images/loading.jpg)
+![](images/notes_prediction_probabilities.svg)
 *Fig 4. Predicted probabilities of notes with true labels*
 
 With the predicted probabilities of notes per patient, the _date_ of Venous Thromboembolism was predicted using Maximum Likelihood.
 
-Image to be uploaded
-<!-- ![](images/average_notes_probability_actual.svg) -->
-![](images/loading.jpg)
+
+![](images/average_notes_probability_actual.svg)
 *Fig 5. Difference between estimated and predicted dates*
 
 At a patient level, the following metrics were obseved with cutoff probability of **0.955**
@@ -90,14 +87,11 @@ At a patient level, the following metrics were obseved with cutoff probability o
 | Recall     | 0.95 (0.92 - 0.96)      |
 | Specificity | 0.97 (0.96 - 0.97)|
 
-<!-- ![](images/roc_pines.svg){: width="500" } -->
-![](images/loading.jpg)
-Image to be uploaded
+![](images/roc_pines.svg){: width="500" }
 
 *Fig 6. ROC for predicting patients with VTE*
 
-![](images/loading.jpg)
-Image to be uploaded
-<!-- ![](images/pines_confusion_matrix.svg){: width="500" } -->
+
+![](images/pines_confusion_matrix.svg){: width="500" }
 
 *Fig 7. Confusion Matrix for predicting patients with VTE*

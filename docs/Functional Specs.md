@@ -31,7 +31,8 @@ Active learning is a special case of machine learning in which a learning algori
 ![PINES-AL](https://github.com/CEDARS-NLP/PINES/assets/31292443/dcc107f5-cc9e-4a92-823d-f594f0f98b15)
 
 ### CEDARS + PINES
-![CEDARS+PINES](images/image.png)
+
+![Alt text]({{ baseurl }}/images/image.png)
 
 ### PINES-AL Workflow
 
@@ -46,8 +47,10 @@ Active learning is a special case of machine learning in which a learning algori
 			5. Query Strategies
 	2. Server talks to the same Mongo instance as CEDARS
 2. Final Model saved
-3. All data is labeled using saved model from 2.
-4. Use CEDARS export 
+	a. MINIO service
+	b. filesystem
+3. All data is labeled using saved model from 2 into Mongo
+4. Use CEDARS export to export data into various formats
 
 
 ### Footnotes

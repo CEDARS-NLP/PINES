@@ -1,0 +1,7 @@
+**/_site/*
+**/__pycache__/*
+.env
+small-text
+poetry.lock
+notebooks/.*
+**/datasets/*

@@ -28,10 +28,10 @@ Active learning is a special case of machine learning in which a learning algori
 ## Flowchart
 
 ### PINES (Active Learning)
-![image](https://github.com/CEDARS-NLP/PINES/assets/31292443/dcc107f5-cc9e-4a92-823d-f594f0f98b15)
+![PINES-AL](https://github.com/CEDARS-NLP/PINES/assets/31292443/dcc107f5-cc9e-4a92-823d-f594f0f98b15)
 
 ### CEDARS + PINES
-![Alt text](image.png)
+![CEDARS+PINES](images/image.png)
 
 ### PINES-AL Workflow
 

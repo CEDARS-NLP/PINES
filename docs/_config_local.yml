@@ -11,7 +11,7 @@ github_username:  ygivenx
 # theme: minima
 theme: just-the-docs
 plugins:
-  - jekyll-default-layout
+  - jekyll-feed
 #remote_theme: pmarsceill/just-the-docs
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -27,10 +27,27 @@ Active learning is a special case of machine learning in which a learning algori
 
 ## Flowchart
 
+### PINES (Active Learning)
 ![image](https://github.com/CEDARS-NLP/PINES/assets/31292443/dcc107f5-cc9e-4a92-823d-f594f0f98b15)
 
+### CEDARS + PINES
+![Alt text](image.png)
 
+### PINES-AL Workflow
 
+1. Live server during training with GPU
+	1. Start server
+		1. CLI
+		2. GUI Based
+			1. Dropdown to select Model
+			2. Num Iterations (Budget)
+			3. Samples per iteration
+			4. Initialization Strategies
+			5. Query Strategies
+	2. Server talks to the same Mongo instance as CEDARS
+2. Final Model saved
+3. All data is labeled using saved model from 2.
+4. Use CEDARS export 
 
 
 ### Footnotes

@@ -12,6 +12,8 @@ github_username:  ygivenx
 # theme: minima
 # theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
+plugins:
+  - jekyll-default-layout
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

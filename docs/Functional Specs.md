@@ -1,3 +1,9 @@
+---
+layout: page
+title: Pines Active Learning
+permalink: /pines-al/
+nav_order: 3
+---
 
 # PINES-AL (Active Learning)
 

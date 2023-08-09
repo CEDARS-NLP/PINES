@@ -1,0 +1,93 @@
+{"0": {
+    "doc": "Pines Active Learning",
+    "title": "PINES-AL (Active Learning)",
+    "content": "Authors: Rohan Singh, Simon Mantha . Product: pines.ai . Stakeholder: Simon Mantha (manthas@mskcc.org) . ",
+    "url": "/PINES/pines-al/#pines-al-active-learning",
+    
+    "relUrl": "/pines-al/#pines-al-active-learning"
+  },"1": {
+    "doc": "Pines Active Learning",
+    "title": "Overview",
+    "content": "PINES (Periodic Inference and Nested Episodic Service) is an active-learning framework through for text classification. It can help investigators and researchers to quickly annotate textual data^^^ using for analysis. What is active learning? . Active learning is a special case of machine learning in which a learning algorithm can interactively query a user (or some other information source) to label new data points with desired outputs (wikipedia) . ",
+    "url": "/PINES/pines-al/#overview",
+    
+    "relUrl": "/pines-al/#overview"
+  },"2": {
+    "doc": "Pines Active Learning",
+    "title": "Scenarios",
+    "content": ". | No labeled data: Dr Smith wants to find all patients who have a fracture in the pelvic region. However, there are no standardized data that he can use to find such patients. The only way he can get the data is by reviewing all patients notes which meet a certain criteria. Review patient notes can be a time consuming process and Dr. Smith is very busy. He can relatively quickly annotate all this patients using PINES. He will upload^ all his patient notes to the PINES platform. PINES will randomly^^ show him 50 notes which Dr. Smith will have to label manually. Once 50 annotations are done, the model will start training on the 50 examples and make predictions for all data. The model will then present the most relevant** examples to Dr. Smith for more manual annotations. After each train cycle, Dr. Smith will be presented with model metrics^^^. Dr. Smith will stop annotating once his desired metrics are achieved or other Stopping Criteria is reached. | Trained model available but different population: MSK already has a model which was trained to find deep venous thrombosis (DVT) events. Dr Parker at Dana Farber wants to find all patients with DVT in his patient cohort. MSK provides her with the pre-trained model. Dr. Parker fires up the PINES application and selected the MSK model as the starting model. In this case, she doesn’t need to label any data to start with. The model will run an initial pass and present her with the metrics. If the metrics are as per her requirements, she can use the model without any annotations. If not, the model will present her the most relevant** examples to annotate and the re-training cycle will start (same as Scenario 1) | . ",
+    "url": "/PINES/pines-al/#scenarios",
+    
+    "relUrl": "/pines-al/#scenarios"
+  },"3": {
+    "doc": "Pines Active Learning",
+    "title": "Flowchart",
+    "content": ". Footnotes . ^^^ Future work to add other modalities . ^ The data will not leave his network without being encrypted . ^^ Several Initialization Strategies can be used depending on the availability for labelled data . ** Several Query Strategies can be used for find the most relevant or useful examples for labeling . ",
+    "url": "/PINES/pines-al/#flowchart",
+    
+    "relUrl": "/pines-al/#flowchart"
+  },"4": {
+    "doc": "Pines Active Learning",
+    "title": "Pines Active Learning",
+    "content": " ",
+    "url": "/PINES/pines-al/",
+    
+    "relUrl": "/pines-al/"
+  },"5": {
+    "doc": "About",
+    "title": "Contributors",
+    "content": ". | Rohan Singh (MS) | Dr. Simon Mantha (MD, MPH) | . ",
+    "url": "/PINES/about/#contributors",
+    
+    "relUrl": "/about/#contributors"
+  },"6": {
+    "doc": "About",
+    "title": "About",
+    "content": " ",
+    "url": "/PINES/about/",
+    
+    "relUrl": "/about/"
+  },"7": {
+    "doc": "PINES",
+    "title": "Introduction",
+    "content": "The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. PINES is an addition to the CEDARS project. In addition to predicting notes probabilities, the PINES package also uses Maximum Likelihood to find the probable date of the event. Fig 1. Labeling Patient Notes . ",
+    "url": "/PINES/#introduction",
+    
+    "relUrl": "/#introduction"
+  },"8": {
+    "doc": "PINES",
+    "title": "Code",
+    "content": "The code for PINES can be found here. ",
+    "url": "/PINES/#code",
+    
+    "relUrl": "/#code"
+  },"9": {
+    "doc": "PINES",
+    "title": "Datasets",
+    "content": "| Set | Patients | Notes | . | Training | 24,774 | 394,948 | . | Validation | 3,540 | 55,502 | . | Dev | 3,540 | 60,134 | . | Test | 3, 540 | - | . ",
+    "url": "/PINES/#datasets",
+    
+    "relUrl": "/#datasets"
+  },"10": {
+    "doc": "PINES",
+    "title": "Training",
+    "content": "A Longformer-4096 LLM model was fine-tuned on the training dataset of 394,948 notes. Sliding window attention of 512 (256 on each side) was used along with global attention on Venous Thromoboemolism related keywords. The selected model had the best loss on the validation set. # Create a ModelCheckpoint callback checkpoint_callback = ModelCheckpoint( monitor='val_loss', dirpath='train_steps', filename='longformer-model-{epoch:02d}-{val_loss:.2f}', save_top_k=3, mode='min', ) # training trainer = pl.Trainer(enable_checkpointing=checkpoint, accelerator='gpu', devices=devices, max_epochs=epochs, precision=16, strategy=\"ddp_spawn\", default_root_dir=\"./train-final-1\", callbacks=[checkpoint_callback], val_check_interval=5000 ) trainer.fit(model, train_dataloader, val_dataloader) . Training Code (Pytorch Lightning) . Fig 2. Validation Loss . Fig 3. Validation Accuracy . ",
+    "url": "/PINES/#training",
+    
+    "relUrl": "/#training"
+  },"11": {
+    "doc": "PINES",
+    "title": "Results",
+    "content": "The fine_tuned model was used to predict the probability of the unseen notes in the DEV set. Fig 4. Predicted probabilities of notes with true labels . With the predicted probabilities of notes per patient, the date of Venous Thromboembolism was predicted using Maximum Likelihood. Fig 5. Difference between estimated and predicted dates . At a patient level, the following metrics were obseved with cutoff probability of 0.955 . | Metrics | Value | . | Accuracy | 0.96 (0.96 - 0.97) | . | Precision | 0.82 (0.79 - 0.85) | . | Recall | 0.95 (0.92 - 0.96) | . | Specificity | 0.97 (0.96 - 0.97) | . Fig 6. ROC for predicting patients with VTE . Fig 7. Confusion Matrix for predicting patients with VTE . ",
+    "url": "/PINES/#results",
+    
+    "relUrl": "/#results"
+  },"12": {
+    "doc": "PINES",
+    "title": "PINES",
+    "content": " ",
+    "url": "/PINES/",
+    
+    "relUrl": "/"
+  }
+}

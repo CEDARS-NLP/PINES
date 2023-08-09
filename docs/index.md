@@ -1,32 +1,97 @@
 ---
-title: Home
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
 layout: home
+title: PINES
+summary: Progressive Inference Nested Episodic Service
+nav_order: 2
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+# Introduction
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+The PINES package detects if a patient note came before or after the occurence of an event such as Deep Venous Thromboembolism. It uses Large Language Models (LLMs) to detect the events in clinical text and provide predicted probabilities. PINES is an addition to the [CEDARS](https://cedars.io) project. In addition to predicting notes probabilities, the PINES package also uses Maximum Likelihood to find the probable date of the event.
 
-More specifically, the created site:
+![Labeling Patient Notes](images/isth-vte.svg)
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+*Fig 1. Labeling Patient Notes*
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+# Code
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+The code for PINES can be found [here](https://github.com/CEDARS-NLP/PINES/tree/main).
 
-To get started with creating a site, just click "[use this template]"!
+# Datasets
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+| Set         | Patients    | Notes   |
+| ----------- | ----------- | ------- |
+| Training    | 24,774      | 394,948 |
+| Validation  | 3,540      | 55,502 |
+| Dev         | 3,540      | 60,134 |
+| Test | 3, 540 | - | 
 
-----
+# Training
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+A _Longformer-4096_ LLM model was fine-tuned on the training dataset of 394,948 notes. Sliding window attention of 512 (256 on each side) was used along with global attention on _Venous Thromoboemolism_ related keywords. The selected model had the best loss on the validation
+set. 
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+```python
+# Create a ModelCheckpoint callback
+    checkpoint_callback = ModelCheckpoint(
+        monitor='val_loss',
+        dirpath='train_steps',
+        filename='longformer-model-{epoch:02d}-{val_loss:.2f}',
+        save_top_k=3,
+        mode='min',
+)
+    # training
+    trainer = pl.Trainer(enable_checkpointing=checkpoint,
+                         accelerator='gpu',
+                         devices=devices,
+                         max_epochs=epochs,
+                         precision=16,
+                         strategy="ddp_spawn",
+                         default_root_dir="./train-final-1",
+                         callbacks=[checkpoint_callback],
+                         val_check_interval=5000
+                         )
+    
+    trainer.fit(model, train_dataloader, val_dataloader)
+```
+Training Code (Pytorch Lightning)
+
+![](images/val_loss.svg) 
+*Fig 2. Validation Loss*
+
+![](images/val_acc.svg)
+*Fig 3. Validation Accuracy*
+
+# Results
+
+The _fine_tuned_ model was used to predict the probability of the unseen notes in the DEV set.
+
+![](images/notes_prediction_probabilities.svg)
+*Fig 4. Predicted probabilities of notes with true labels*
+
+With the predicted probabilities of notes per patient, the _date_ of Venous Thromboembolism was predicted using Maximum Likelihood.
+
+
+![](images/average_notes_probability_actual.svg)
+*Fig 5. Difference between estimated and predicted dates*
+
+At a patient level, the following metrics were obseved with cutoff probability of **0.955**
+
+| Metrics         | Value    | 
+| ----------- | ----------- | 
+| Accuracy   | 0.96 (0.96 - 0.97)      | 
+| Precision  | 0.82 (0.79 - 0.85)      | 
+| Recall     | 0.95 (0.92 - 0.96)      |
+| Specificity | 0.97 (0.96 - 0.97)|
+
+![](images/roc_pines.svg){: width="500" }
+
+*Fig 6. ROC for predicting patients with VTE*
+
+
+![](images/pines_confusion_matrix.svg){: width="500" }
+
+*Fig 7. Confusion Matrix for predicting patients with VTE*

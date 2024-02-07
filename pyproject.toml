@@ -8,12 +8,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-torch = "^2.1.2"
 fastapi = "^0.109.0"
 uvicorn = "^0.26.0"
 transformers = "^4.36.2"
-sphinx = "^7.2.6"
-furo = "^2023.9.10"
+mkdocs = "^1.5.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.4"

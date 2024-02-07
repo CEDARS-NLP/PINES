@@ -1,10 +1,15 @@
 import configparser
 from fastapi import FastAPI
+from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from pathlib import Path
 from transformers import pipeline
 import torch
 import uvicorn
+
+
+class Note(BaseModel):
+    text: str
 
 
 def get_parent_dir():
@@ -49,17 +54,17 @@ app = FastAPI(title="PINES NLP Model",
 
 
 @app.post("/predict")
-async def detect(text: str):
+async def detect(note: Note):
     """Label a single text"""
-    predictions = classifier["model"].predict(text)
+    predictions = classifier["model"].predict(note.text)
     return {"prediction": predictions[0],
             "model": model_name}
 
 
 @app.post("/predict_batch")
-async def detect_batch(texts: list[str]):
+async def detect_batch(notes: list[Note]):
     """Label a batch of texts"""
-    predictions = classifier["model"].predict(texts)
+    predictions = classifier["model"].predict([notes[i].text for i in range(len(notes))])
     return {"prediction": predictions,
             "model": model_name}
 

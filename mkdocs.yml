@@ -1,0 +1,22 @@
+site_name: PINES
+
+nav:
+  - Overview: README.md # this will have to be linked back to package root ../, DO transfer this file to the repo
+  - About: ABOUT.md
+  - User Manual: PINES_user_manual.md
+  - Terms of Use: TERMS_OF_USE.md # this will have to be linked back to package root ../, do NOT transfer this file to the repo
+ 
+
+theme: 
+  name: readthedocs
+  include_homepage_in_sidebar: true
+  prev_next_buttons_location: none
+  titles_only: false
+  logo: pics/pine_M_centered.png
+
+plugins: 
+  - search
+  # - with-pdf Could not install
+  
+extra_css:
+  - style.css

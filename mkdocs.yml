@@ -1,7 +1,8 @@
 site_name: PINES
+repo_url: https://github.com/CEDARS-NLP/PINES
 
 nav:
-  - Overview: README.md # this will have to be linked back to package root ../, DO transfer this file to the repo
+  - Overview: README.md # will not work if deployed from windows as windows do not respect symlinks
   - About: ABOUT.md
   - User Manual: PINES_user_manual.md
   - Terms of Use: TERMS_OF_USE.md # this will have to be linked back to package root ../, do NOT transfer this file to the repo

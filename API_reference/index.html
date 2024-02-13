@@ -6,7 +6,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>About - PINES</title>
+<title>API Reference - PINES</title>
 <link href="../css/theme.css" rel="stylesheet"/>
 <link href="../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
@@ -14,8 +14,8 @@
 <link href="../style.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "About";
-        var mkdocs_page_input_path = "ABOUT.md";
+        var mkdocs_page_name = "API Reference";
+        var mkdocs_page_input_path = "API_reference.md";
         var mkdocs_page_url = null;
       </script>
 <!--[if lt IE 9]>
@@ -42,18 +42,16 @@
 <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="./">About</a>
-<ul class="current">
-</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ABOUT/">About</a>
 </li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../PINES_user_manual/">User Manual</a>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../API_reference/">API Reference</a>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">API Reference</a>
 </li>
 </ul>
 <ul>
@@ -72,23 +70,16 @@
 <div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
-<li class="breadcrumb-item active">About</li>
+<li class="breadcrumb-item active">API Reference</li>
 <li class="wy-breadcrumbs-aside">
-<a class="icon icon-github" href="https://github.com/CEDARS-NLP/PINES/edit/master/docs/ABOUT.md"> Edit on GitHub</a>
+<a class="icon icon-github" href="https://github.com/CEDARS-NLP/PINES/edit/master/docs/API_reference.md"> Edit on GitHub</a>
 </li>
 </ul>
 <hr/>
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="about">About</h1>
-<p>PINES was created out of a need to scale up the annotation of large patient cohort datasets for clinical events. The first use case was cancer-associated venous thromboembolism, but from the start we aimed to develop a generic tool which could be used to detect a broad range of events. This software is under development at <a href="https://www.mskcc.org">Memorial Sloan Kettering Cancer Center (MSKCC)</a>.</p>
-<p>The package authors include:</p>
-<ul>
-<li><a href="https://www.mskcc.org/cancer-care/doctors/simon-mantha">Simon Mantha, MD, MPH</a>: project lead, clinical hematologist by training</li>
-<li><a href="https://www.linkedin.com/in/singhrhn">Rohan Singh, MS</a>: principal data scientist</li>
-<li><a href="https://www.linkedin.com/in/kayan-irani-762938218">Kayan Irani</a>: collaborator</li>
-</ul>
+<p><iframe class="swagger-ui-iframe" frameborder="0" id="32e0005b" src="swagger-32e0005b.html" style="overflow:hidden;width:100%;" width="100%"></iframe></p>
 </div>
 </div><footer>
 <hr/>
@@ -107,8 +98,8 @@
 <span>
 <a class="fa fa-github" href="https://github.com/CEDARS-NLP/PINES" style="color: #fcfcfc"> GitHub</a>
 </span>
-<span><a href=".." style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../PINES_user_manual/" style="color: #fcfcfc">Next »</a></span>
+<span><a href="../PINES_user_manual/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../TERMS_OF_USE/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -137,7 +128,7 @@
                 iframe_id_list.push(iframes[i].getAttribute("id"))
             }
         
-            let ticking = true;
+            let ticking = false;
             
             document.addEventListener('scroll', function(e) {
                 if (!ticking) {

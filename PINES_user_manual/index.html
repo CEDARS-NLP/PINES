@@ -1,174 +1,358 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+
+<html class="writer-html5" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>User Manual - PINES</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../style.css" rel="stylesheet" />
-    
-      <script>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>User Manual - PINES</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<script>
         // Current page data
         var mkdocs_page_name = "User Manual";
         var mkdocs_page_input_path = "PINES_user_manual.md";
         var mkdocs_page_url = null;
       </script>
-    
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </head>
-
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="..">
-          <img src="../pics/pine_M_centered.png" class="logo" alt="Logo"/>
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a href="..">
+<img alt="Logo" class="logo" src="../pics/pine_M_centered.png"/>
+</a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../ABOUT/">About</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">User Manual</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#software-installation">Software Installation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#detailed-requirements">Detailed Requirements</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#standalone-pines-installation">Standalone PINES Installation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#installing-pines-in-cedars-docker-deployment">Installing PINES in CEDARS Docker Deployment</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#operation">Operation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#using-pines-from-the-command-line-interface">Using PINES from the Command Line Interface</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pines-as-part-of-docker-deployment-with-cedars">PINES as Part of Docker Deployment with CEDARS</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#function-reference">Function Reference</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../TERMS_OF_USE/">Terms of Use</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">PINES</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">User Manual</li>
-    <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/CEDARS-NLP/PINES/edit/master/docs/PINES_user_manual.md" class="icon icon-github"> Edit on GitHub</a>
-    </li>
-  </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="pines-user-manual">PINES User Manual</h1>
-<h2 id="software-installation">Software Installation</h2>
-<h3 id="detailed-requirements">Detailed Requirements</h3>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ABOUT/">About</a>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">User Manual</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#software-installation">Software Installation</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-requirements">Detailed Requirements</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#local-installation">Local Installation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-installation">Docker Installation</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#standalone-pines-installation">Standalone PINES Installation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-pines-in-cedars-docker-deployment">Installing PINES in CEDARS Docker Deployment</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operation">Operation</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#function-reference">Function Reference</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#pines.detect">detect</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pines.detect_batch">detect_batch</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../API_reference/">API Reference</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TERMS_OF_USE/">Terms of Use</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">PINES</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">User Manual</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/CEDARS-NLP/PINES/edit/master/docs/PINES_user_manual.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="pines-user-manual">PINES User Manual</h1>
+<blockquote>
 <p><strong>PINES is provided as-is with no guarantee whatsoever and users agree to be held responsible for compliance with their local government/institutional regulations.</strong> All PINES installations should be reviewed with institutional information security authorities.</p>
-<p>Rohan to populate</p>
+</blockquote>
+<p>PINES provide a simple inference API to interact with large language models to detect clinical events in free text. The software is designed to be used in a clinical research setting, where the user has access to a large dataset of clinical notes and wants to detect the presence of a specific event.</p>
+<h2 id="software-installation">Software Installation</h2>
+<p>The software can be installed <code>locally</code> or run can be run as a <code>Docker</code> container. </p>
+<h3 id="detailed-requirements">Detailed Requirements</h3>
+<h4 id="local-installation">Local Installation</h4>
+<ul>
+<li>Python 3.9 or later</li>
+<li>poetry
+    To install poetry, run <code>pipx install poetry</code> or follow the <a href="https://python-poetry.org/docs/">instructions</a>.</li>
+</ul>
+<p>Once poetry is installed, you can install the package locally by running the following commands:</p>
+<pre><code class="language-bash">git clone https://github.com/CEDARS-NLP/PINES.git
+cd PINES
+poetry install # this will install all required packages
+poetry run python pines.py # this will run the package
+</code></pre>
+<h4 id="docker-installation">Docker Installation</h4>
+<ul>
+<li>
+<p>Docker</p>
+<p>Verify <code>docker -v</code> works on your system.</p>
+<p><img alt="Docker Verify" src="../pics/docker-verify.png"/></p>
+<p>If it does not, please follow the <a href="https://docs.docker.com/get-docker/">Docker installation instructions</a>.</p>
+</li>
+</ul>
+<p>Once Docker is installed, you can install the package as a Docker container by running the following commands:</p>
+<pre><code class="language-bash">git clone https://github.com/CEDARS-NLP/PINES.git
+docker build -t pines-api .
+docker run -dp 127.0.0.1:8036:8036 pines-api
+</code></pre>
 <h3 id="system-architecture">System Architecture</h3>
-<p><img alt="CEDARS Operational Schema" src="../pics/GitHub%20Docker%20Schema%20C.png" /></p>
-<p>Rohan to expand</p>
+<p><img alt="PINES Operational Schema" src="../pics/pines_arch.png"/></p>
 <h3 id="standalone-pines-installation">Standalone PINES Installation</h3>
-<p>Rohan to expand</p>
+<p>Standalone PINES installation is a preferred method for users who want to apply the software on their notes without the need to deploy a full CEDARS stack. The standalone installation is also useful for users who want to use PINES as a standalone tool for their research or clinical work.</p>
 <h3 id="installing-pines-in-cedars-docker-deployment">Installing PINES in CEDARS Docker Deployment</h3>
-<p>Could link the section of the CEDARS manual which does that...</p>
+<p>PINES is available as a Docker container and can be deployed as part of the CEDARS stack. This is the preferred method for users who want to use PINES as part of the CEDARS stack.</p>
 <h2 id="operation">Operation</h2>
-<h3 id="using-pines-from-the-command-line-interface">Using PINES from the Command Line Interface</h3>
-<p>Rohan to expand</p>
-<h3 id="pines-as-part-of-docker-deployment-with-cedars">PINES as Part of Docker Deployment with CEDARS</h3>
-<p>Rohan to expand</p>
+<p>In all deployment methods, PINES is available as a service on port 8036. The service can be accessed using a RESTful API. The API is documented in the <a href="../API_reference/">API Reference</a>.</p>
 <h2 id="function-reference">Function Reference</h2>
-<p>Rohan to populate - maybe just link existing document elsewhere in repo?</p>
-              
-            </div>
-          </div><footer>
+<div class="doc doc-object doc-function">
+<a id="pines.detect"></a>
+<div class="doc doc-contents first">
+<p>Label a single text</p>
+<table class="field-list">
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Returns:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b><code>prediction</code></b>(                <code>dict</code>
+)            –
+            <div class="doc-md-description">
+<p>dict</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>pines.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/predict"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">detect</span><span class="p">(</span><span class="n">note</span><span class="p">:</span> <span class="n">Note</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Label a single text</span>
 
-  <hr/>
+<span class="sd">    Returns:</span>
+<span class="sd">        prediction: dict</span>
+<span class="sd">    """</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"prediction"</span><span class="p">:</span> <span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_name</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<a id="pines.detect_batch"></a>
+<div class="doc doc-contents first">
+<p>Label a batch of texts</p>
+<table class="field-list">
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b><code>notes</code></b>
+                  (<code>list[<span title="pines.Note">Note</span>]</code>)
+              –
+              <div class="doc-md-description">
+<p>List of Note objects</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="field-list">
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Returns:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b><code>predictions</code></b>(                <code>dict</code>
+)            –
+            <div class="doc-md-description">
+<p>dict of list of predictions</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>pines.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/predict_batch"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">detect_batch</span><span class="p">(</span><span class="n">notes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Note</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Label a batch of texts</span>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+<span class="sd">    Args:</span>
+<span class="sd">        notes: List of Note objects</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        predictions: dict of list of predictions</span>
+<span class="sd">    """</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">notes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">notes</span><span class="p">))])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"prediction"</span><span class="p">:</span> <span class="n">predictions</span><span class="p">,</span>
+            <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_name</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-        <span>
-          <a href="https://github.com/CEDARS-NLP/PINES" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
-        </span>
-    
-    
-      <span><a href="../ABOUT/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../TERMS_OF_USE/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/CEDARS-NLP/PINES" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../ABOUT/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../API_reference/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-
-</body>
+<script>
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        </script></body>
 </html>

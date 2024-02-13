@@ -73,7 +73,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#using-curl">Using Curl</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#output">Output:</a>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a>
 </li>
 </ul>
 </li>
@@ -143,7 +143,7 @@ poetry install # this will install all required packages
 poetry run python pines.py # this will run the package
 </code></pre>
 <h3 id="docker">Docker</h3>
-<pre><code>git clone https://github.com/CEDARS-NLP/PINES.git
+<pre><code class="language-bash">git clone https://github.com/CEDARS-NLP/PINES.git
 docker build -t pines-api .
 docker run -dp 127.0.0.1:8036:8036 pines-api
 </code></pre>
@@ -153,9 +153,9 @@ docker run -dp 127.0.0.1:8036:8036 pines-api
 <p>We fine tuned the <a href="https://huggingface.co/yikuan8/Clinical-Longformer">clinical-longformer</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> model on our dataset. The clinical-longformer, starting with Longformer checkpoint, was further pre-trained on MIMIC-III dataset. After finetuning, the model is then used to predict the presence of a label in a new clinical note. The model outputs a score which is a measure of the confidence of the model in the prediction.</p>
 <p>Note: The trained models are not open-source and are not included in the repository. Please email the authors for access to the trained models.</p>
 <h3 id="model-card">Model Card</h3>
-<ol>
+<ul>
 <li>VTE Detection Model</li>
-</ol>
+</ul>
 <table>
 <thead>
 <tr>
@@ -186,9 +186,9 @@ docker run -dp 127.0.0.1:8036:8036 pines-api
 </tr>
 </tbody>
 </table>
-<ol>
+<ul>
 <li>Metastatic Disease Detection Model</li>
-</ol>
+</ul>
 <table>
 <thead>
 <tr>
@@ -221,16 +221,20 @@ docker run -dp 127.0.0.1:8036:8036 pines-api
 </table>
 <h2 id="operational-schema">Operational Schema</h2>
 <p><img alt="PINES Operational Schema" src="pics/pines_arch.png"/></p>
-<p>PINES can be run as a standalone service or as part of a <a href="https://cedars.io">CEDARS</a> deployment. The standalone service can be run as a Docker container or as a local installation. The standalone service can be accessed via a REST API. The CEDARS deployment can be accessed via the CEDARS API.</p>
+<p>PINES can be run as a standalone service or as part of a <a href="https://cedars.io">CEDARS</a> deployment. The standalone service can be run as a Docker container or as a local installation. </p>
+<p>In all deployments, the service can be accessed via a REST API.</p>
 <h2 id="sample-code">Sample Code</h2>
 <p>Detection of metastatic disease in a clinical note.</p>
 <h4 id="using-httpie">Using Httpie</h4>
-<pre><code>http POST http://localhost:8036/predict text="The patient had metastates."
+<pre><code class="language-bash">http POST http://localhost:8036/predict text="The patient had metastates."
 </code></pre>
 <h4 id="using-curl">Using Curl</h4>
-<pre><code class="language-bash">curl -X POST "http://localhost:8036/predict" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"text\":\"The patient has a history of breast cancer and was diagnosed with a pulmonary embolism.\"}"
+<pre><code class="language-bash">curl -X POST "http://localhost:8036/predict" \
+-H "accept: application/json" \
+-H "Content-Type: application/json" \
+-d "{\"text\":\"The patient had metastates.\"}"
 </code></pre>
-<h4 id="output">Output:</h4>
+<h4 id="output">Output</h4>
 <pre><code class="language-json">{
     "model": "mets-longformer-4k-pycedars",
     "prediction": {
@@ -322,5 +326,5 @@ docker run -dp 127.0.0.1:8036:8036 pines-api
 </html>
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-02-13 01:30:08.414771+00:00
+Build Date UTC : 2024-02-13 02:39:52.025456+00:00
 -->

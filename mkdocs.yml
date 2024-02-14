@@ -5,6 +5,7 @@ nav:
   - Overview: README.md # will not work if deployed from windows as windows do not respect symlinks
   - About: ABOUT.md
   - User Manual: PINES_user_manual.md
+  - API Reference: API_reference.md
   - Terms of Use: TERMS_OF_USE.md # this will have to be linked back to package root ../, do NOT transfer this file to the repo
  
 
@@ -17,7 +18,13 @@ theme:
 
 plugins: 
   - search
-  # - with-pdf Could not install
+  - mkdocstrings
+  - bibtex:
+      bib_file: "refs.bib"
+  - swagger-ui-tag
+  
+markdown_extensions:
+  - footnotes
   
 extra_css:
   - style.css

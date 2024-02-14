@@ -54,16 +54,28 @@ app = FastAPI(title="PINES NLP Model",
 
 
 @app.post("/predict")
-async def detect(note: Note):
-    """Label a single text"""
+async def detect(note: Note) -> dict:
+    """
+    Label a single text
+
+    Returns:
+        prediction: dict
+    """
     predictions = classifier["model"].predict(note.text)
     return {"prediction": predictions[0],
             "model": model_name}
 
 
 @app.post("/predict_batch")
-async def detect_batch(notes: list[Note]):
-    """Label a batch of texts"""
+async def detect_batch(notes: list[Note]) -> dict:
+    """Label a batch of texts
+
+    Args:
+        notes: List of Note objects
+    
+    Returns:
+        predictions: dict of list of predictions
+    """
     predictions = classifier["model"].predict([notes[i].text for i in range(len(notes))])
     return {"prediction": predictions,
             "model": model_name}

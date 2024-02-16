@@ -53,6 +53,10 @@ app = FastAPI(title="PINES NLP Model",
               )
 
 
+@app.get("/")
+async def read_root():
+    return {"message": f"Welcome to the Pines NLP Model\n\n Current Model: {model_name}"}
+
 @app.post("/predict")
 async def detect(note: Note) -> dict:
     """

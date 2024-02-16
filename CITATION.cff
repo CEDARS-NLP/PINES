@@ -1,0 +1,43 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: PINES
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Rohan
+    family-names: Singh
+    email: singhrohan@outlook.com
+    affiliation: Memorial Sloan Kettering Cancer Center
+    orcid: 'https://orcid.org/0009-0003-1326-7249'
+  - given-names: Simon
+    family-names: Mantha
+    affiliation: Memorial Sloan Kettering Cancer Center
+repository-code: 'https://github.com/CEDARS-NLP/PINES'
+url: 'https://pines.ai'
+abstract: >-
+  PINES (Progressive Inference Networked Episodic Service)
+  is a natural language processing (NLP) package aimed at
+  detecting clinical events in the electronic health record
+  (EHR). This software suite incorporates specialized
+  functions and a dedicated application programming
+  interface (API) designed to facilitate its use as a
+  service integrated with a CEDARS instance, even though it
+  can be used as a standalone tool as well. PINES exists as
+  an open-source Python package under GPL-3 license. The
+  latest package and prior versions can be cloned from
+  GitHub. Full documentation is available here. Please see
+  the Terms of Use before using this software. PINES is
+  provided as-is with no guarantee whatsoever and users
+  agree to be held responsible for compliance with their
+  local government/institutional regulations.
+keywords:
+  - nlp
+  - llm
+  - transformer
+  - clinical
+  - data labelling
+  - EHR

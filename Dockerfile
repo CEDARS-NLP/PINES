@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:latest
+FROM python:3.9-buster as builder
 
 RUN pip install poetry==1.7.1
 
@@ -9,14 +9,20 @@ ENV POETRY_NO_INTERACTION=1 \
 
 WORKDIR /
 
-COPY pyproject.toml poetry.lock README.md ./
+COPY pyproject.toml poetry.lock ./
+RUN touch README.md
 
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+RUN poetry install --without dev,doc --no-root && rm -rf $POETRY_CACHE_DIR
+
+FROM python:3.9-slim as runtime
+
+ENV VIRTUAL_ENV=/.venv \
+    PATH="/.venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY . .
 
-RUN poetry install --without dev 
-
 EXPOSE 8036
 
-CMD ["poetry", "run", "uvicorn", "pines:app", "--host", "0.0.0.0", "--port", "8036"]
+CMD ["gunicorn", "pines:app", "--workers", "4", "-k", "uvicorn.workers.UvicornWorker", "--bind", ":8036"]

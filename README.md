@@ -1,3 +1,4 @@
+[![mkdocs](https://github.com/CEDARS-NLP/PINES/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/CEDARS-NLP/PINES/actions/workflows/gh-pages.yml)
 # Overview
 
 ## Background

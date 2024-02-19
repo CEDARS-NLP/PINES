@@ -1,4 +1,5 @@
 **/__pycache__/*
-**/models/*
+**/vte-longformer-4k-cedars
+**/mets-longformer-4k-pycedars
 **/.DS_Store
 site

@@ -25,4 +25,4 @@ COPY . .
 
 EXPOSE 8036
 
-CMD ["gunicorn", "pines:app", "--workers", "4", "-k", "uvicorn.workers.UvicornWorker", "--bind", ":8036", "--timeout", "180"]
+CMD ["uvicorn", "pines:app", "--host", "0.0.0.0", "--port", "8036"]

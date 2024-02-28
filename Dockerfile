@@ -25,4 +25,4 @@ COPY . .
 
 EXPOSE 8036
 
-CMD ["uvicorn", "pines:app", "--host", "0.0.0.0", "--port", "8036"]
+CMD ["uvicorn", "pines:app", "--host", "0.0.0.0", "--port", "8036",  "--proxy-headers"]

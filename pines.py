@@ -6,7 +6,7 @@ from pathlib import Path
 from transformers import pipeline
 import torch
 import uvicorn
-
+from dotenv import dotenv_values
 
 class Note(BaseModel):
     text: str
@@ -20,8 +20,14 @@ def get_parent_dir():
 
 config = configparser.ConfigParser()
 config.read(get_parent_dir() / "config.ini")
-model_dir = config["DEFAULT"].get("ModelDir")
-current_model = config["DEFAULT"].get("MODEL")
+env_vars = dotenv_values(".env")
+
+if "ModelDir" in env_vars:
+    model_dir = env_vars["ModelDir"]
+    current_model = env_vars["MODEL"]
+else:
+    model_dir = config["DEFAULT"].get("ModelDir")
+    current_model = config["DEFAULT"].get("MODEL")
 
 model_max_length = int(config[current_model].get("ModelMaxLength"))
 model_name = config[current_model].get("ModelName")

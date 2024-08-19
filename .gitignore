@@ -3,3 +3,4 @@
 **/mets-longformer-4k-pycedars
 **/.DS_Store
 site
+.env

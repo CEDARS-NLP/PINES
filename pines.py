@@ -1,3 +1,4 @@
+import os
 import configparser
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -6,7 +7,9 @@ from pathlib import Path
 from transformers import pipeline
 import torch
 import uvicorn
-from dotenv import dotenv_values
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Note(BaseModel):
     text: str
@@ -20,11 +23,10 @@ def get_parent_dir():
 
 config = configparser.ConfigParser()
 config.read(get_parent_dir() / "config.ini")
-env_vars = dotenv_values(".env")
 
-if "ModelDir" in env_vars:
-    model_dir = env_vars["ModelDir"]
-    current_model = env_vars["MODEL"]
+if os.getenv("ModelDir") is not None and os.getenv("MODEL") is not None:
+    model_dir = os.getenv("ModelDir")
+    current_model = os.getenv("MODEL")
 else:
     model_dir = config["DEFAULT"].get("ModelDir")
     current_model = config["DEFAULT"].get("MODEL")

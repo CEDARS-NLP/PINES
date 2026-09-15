@@ -33,6 +33,9 @@ else:
 
 model_max_length = int(config[current_model].get("ModelMaxLength"))
 model_name = config[current_model].get("ModelName")
+classification_threshold = config[current_model].getfloat("ClassificationThreshold")
+if not 0 <= classification_threshold <= 1:
+    raise ValueError("ClassificationThreshold must be between 0 and 1")
 
 if model_name.startswith("s3:"):
     models_path = model_name
@@ -75,7 +78,9 @@ async def read_root():
 @app.get("/healthcheck")
 async def healthcheck():
     return {"message": f"Welcome to the Pines NLP Model\n\n Current Model: {model_name}",
-            "status": "Healthy"}
+            "status": "Healthy",
+            "model": model_name,
+            "classification_threshold": classification_threshold}
 
 
 @app.post("/predict")
@@ -88,7 +93,8 @@ async def detect(note: Note) -> dict:
     """
     predictions = classifier["model"].predict(note.text)
     return {"prediction": predictions[0],
-            "model": model_name}
+            "model": model_name,
+            "classification_threshold": classification_threshold}
 
 
 @app.post("/predict_batch")
@@ -103,7 +109,8 @@ async def detect_batch(notes: list[Note]) -> dict:
     """
     predictions = classifier["model"].predict([notes[i].text for i in range(len(notes))])
     return {"prediction": predictions,
-            "model": model_name}
+            "model": model_name,
+            "classification_threshold": classification_threshold}
 
 
 if __name__ == "__main__":

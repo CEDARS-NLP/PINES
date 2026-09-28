@@ -1,6 +1,6 @@
 import os
 import configparser
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -46,6 +46,14 @@ else:
 if len(model_dir) == 0:
     raise ValueError("Please specify a model dir in config.ini")
 
+
+def get_model_search_query(model_id: str) -> str:
+    """Return the CEDARS search query configured for a model in config.ini."""
+    if model_id not in config.sections():
+        raise HTTPException(status_code=404, detail=f"Unknown model {model_id}")
+    return config[model_id].get("SearchQuery", "")
+
+
 classifier = {}
 
 @asynccontextmanager
@@ -81,6 +89,21 @@ async def healthcheck():
             "status": "Healthy",
             "model": model_name,
             "classification_threshold": classification_threshold}
+
+
+@app.get("/models")
+async def list_models() -> dict:
+    """List selectable models. Only the loaded model can serve predictions."""
+    return {"models": [{"id": current_model,
+                        "name": model_name,
+                        "classification_threshold": classification_threshold,
+                        "search_query": get_model_search_query(current_model)}],
+            "current_model": current_model}
+
+
+@app.get("/models/{model_id}/search_query")
+async def model_search_query(model_id: str) -> dict:
+    return {"model": model_id, "search_query": get_model_search_query(model_id)}
 
 
 @app.post("/predict")
